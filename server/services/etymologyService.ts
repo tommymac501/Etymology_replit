@@ -33,16 +33,16 @@ async function fetchEtymologyData(word: string): Promise<EtymologyData> {
       messages: [
         {
           role: "system",
-          content: "You are a scholarly etymologist with expertise in historical linguistics and philology. Provide precise, academically rigorous etymology information for the given word. Focus on linguistic evidence, phonological changes, and documented historical development. Cite original languages precisely (e.g., Proto-Indo-European, Classical Latin, Old English) rather than using general terms."
+          content: "You are an etymologist with expertise in historical linguistics who makes word histories accessible and accurate. Provide well-researched etymology information for the given word while including relevant cultural or historical context that makes the information engaging."
         },
         {
           role: "user",
-          content: `Provide comprehensive and academically rigorous etymology information for the word "${word}" in JSON format with the following fields: 
+          content: `Provide accurate and interesting etymology information for the word "${word}" in JSON format with the following fields: 
           - word: the queried term
-          - origin: the specific source language with precise historical context (including year or period if known)
-          - meaning: detailed explanation of original semantic content and subsequent semantic shifts, with specific attention to linguistic and historical factors
+          - origin: the source language with relevant historical context (including time period if known)
+          - meaning: explanation of original meaning and semantic development, including noteworthy cultural or historical factors where relevant
           
-          Maintain scholarly accuracy and precision. Avoid speculation where evidence is lacking.`
+          Balance scholarly accuracy with accessibility. Include precise linguistic details but also interesting contextual information when available.`
         }
       ],
       response_format: { type: "json_object" }
@@ -80,16 +80,16 @@ async function createEtymologyStory(etymologyData: EtymologyData): Promise<strin
       messages: [
         {
           role: "system",
-          content: "You are a professional etymologist specializing in the scholarly analysis of word origins. Present etymology information in a formal, academic manner while maintaining clarity and accessibility for educated readers."
+          content: "You are a professional etymologist with a talent for making word histories accessible and engaging. Present etymology information in a professional manner that balances academic accuracy with readability and interest for a general educated audience."
         },
         {
           role: "user",
-          content: `Compose a professional 1-2 paragraph explanation of the etymology of the word "${etymologyData.word}". 
+          content: `Compose an informative yet engaging 1-2 paragraph explanation of the etymology of the word "${etymologyData.word}". 
           Include these facts in your analysis: 
           - Origin: ${etymologyData.origin}
           - Meaning: ${etymologyData.meaning}
           
-          Present the information in a scholarly but accessible manner. Avoid metaphors, storytelling devices, or overly casual language. Focus on historical facts, linguistic development, and precise details. Format your response with HTML paragraph tags.`
+          Present the information in a professional but accessible manner. Use clear, precise language but also include interesting historical or cultural context where relevant. Balance scholarly accuracy with readability. Format your response with HTML paragraph tags.`
         }
       ]
     });

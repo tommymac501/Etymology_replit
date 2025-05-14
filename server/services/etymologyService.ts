@@ -4,7 +4,7 @@ import { EtymologyResponse } from "@shared/schema";
 // Using X.ai (Grok) API which follows similar patterns to OpenAI
 const openai = new OpenAI({ 
   baseURL: "https://api.x.ai/v1",
-  apiKey: process.env.XAI_API_KEY || "xai-SHmM413r6kZPZEUeFSSrIDZ7aXoFY1pzrIQ7ZyrlgjS2Q8YWWqm1sAdhbLlxPjfW0Ps7yp4t5w8EGPER" 
+  apiKey: process.env.XAI_API_KEY || "API_KJEY_PLACEHOLDER" 
 });
 
 interface EtymologyData {
